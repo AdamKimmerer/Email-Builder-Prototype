@@ -1,0 +1,1478 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Builder</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel='stylesheet' href='css/spectrum.css'>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/email.css">
+    <link rel="stylesheet" href="css/skin.min.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <style>
+.background {
+  margin: 0;
+  padding: 0;
+  background: #122333;
+  width: 100vw;
+  height: 50vh;
+  overflow: hidden;
+  position: absolute;
+  z-index: 9998;
+  transition: all 0.5s cubic-bezier(.55, 0, .1, 1);
+}
+
+#mainCont {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9999;
+}
+
+.cardCont {
+  width: 100%;
+  height: 100%;
+  padding: 2.5%;
+}
+
+.card {
+    margin: 1%;
+    height: 46%;
+    width: 23%;
+    border-radius: 5px;
+    background: white;
+    float: left;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, .5);
+    transition: bottom 0.5s cubic-bezier(.55, 0, .1, 1);
+    bottom: 0px;
+    position: relative;
+    cursor: pointer;
+}
+
+#cardBG {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#surprise {
+  width: 100%;
+  height: 100%;
+  background: url('http://i.imgur.com/3LljFXC.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+
+.drop {
+  bottom: -1000px !important;
+}
+
+.bubble {
+  animation: bubble 0.2s ease-out;
+}
+
+@-webkit-keyframes bubble {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.03);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+#card1 {
+  background: url("img/card3.jpg");
+  background-size: cover;
+}
+
+#card2 {
+  background: url("img/card5.jpg");
+  background-size: cover;
+}
+
+#card3 {
+  background: url("img/card1.jpg");
+  background-size: cover;
+}
+
+#card4 {
+  background: url("img/card4.jpg");
+  background-size: cover;
+}
+
+#card5 {
+  background: url("img/card2.jpg");
+  background-size: cover;
+}
+
+#card6 {
+  background: url("img/card6.jpg");
+  background-size: cover;
+}
+
+#card7 {
+  background: url("img/card7.jpg");
+  background-size: cover;
+}
+
+#card8 {
+  background: url("img/card8.jpg");
+  background-size: cover;
+}
+
+#backgroundLeft {
+  top: 0;
+}
+
+#backgroundRight {
+  bottom: 0;
+}
+
+.left {
+  top: -50vh !important;
+}
+
+.right {
+  bottom: -50vh !important;
+}
+
+#export {
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    margin: auto;
+    padding-top: 9px;
+    position: relative;
+    top: 8px;
+    cursor: pointer;
+}
+
+#previewFrame {
+  /*margin-left: 100px;
+  margin-top: 5%;*/
+  width: 100%;
+  height: 100%;
+  background: #444;
+  overflow: auto;
+  border: none;
+  outline: none;
+  display: block;
+  float: left;
+}
+
+#previewFrameMobile {
+  /*margin-right: 100px;
+  margin-top: 5%;*/
+  width: 100%;
+  height: 100%;
+  background: #444;
+  border: none;
+  outline: none;
+  display: block;
+  float: right;
+}
+
+#previewModal {
+  padding: 0;
+  margin: 0;
+  background: #0BAA9D;
+  width: 100%;
+  height: 100%;
+  /*display: none;*/
+  z-index: 999999;
+  position: absolute;
+  top: -100%;
+  transition: all 0.2s cubic-bezier(.55, 0, 1, 1);
+}
+
+.previewModalSlide {
+  top: 0 !important;
+}
+
+#left {
+  float: left;
+  height: 90%;
+  width: 65%;
+}
+
+#right {
+  float: right;
+  height: 90%;
+  width: 35%;
+}
+
+.Cont{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+#left .Cont {
+  width: 1024px;
+  height: 600px;
+}
+
+#right .Cont {
+  width: 352px;
+  height: 600px;
+  transition: all 0.2s ease-out;
+}
+
+.Top {
+  width: 100%;
+  background: #231f20;
+  height: 7%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.Mid {
+  width: 100%;
+  height: 86%;
+  background: #231f20;
+  padding: 0px 5%;
+}
+
+.midBody {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background: white;
+  overflow: auto;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+.Bottom {
+  width: 100%;
+  background: #231f20;
+  height: 7%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#previewBottom {
+  height: 10%;
+  width: 100%;
+  clear: both;
+}
+
+#closePreview {
+    height: 50px;
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid #122333;
+    color: #122333;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 6px;
+    cursor: pointer;
+}
+
+#previewSidebar {
+  width: 375px;
+  position: absolute;
+  top: 0;
+  left: -375px;
+  background: #122333;
+  height: 100%;
+  box-shadow: 0px 0px 14px rgba(0,0,0,.5);
+  transition: all 0.1s cubic-bezier(.55, 0, 1, 1);
+}
+
+.previewShow {
+  left: 0px !important;
+}
+
+#previewSidebarClose {
+  text-align: right;
+  padding: 0px 15px;
+  width: 100%;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+#previewSidebarEdit {
+  font-size: 50px;
+  color: white;
+  font-weight: 100;
+  padding-left: 25px;
+}
+
+#previewSidebarTab {
+  position: absolute;
+  top: 200px;
+  width: 50px;
+  height: 50px;
+  padding-top: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  left: -75px;
+  background: #122333;
+  transition: all 0.1s cubic-bezier(.55, 0, 1, 1);
+  cursor: pointer;
+}
+
+.previewShowTab {
+  left: 0px !important;
+}
+
+#previewClose {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.landscape {
+    width: 600px !important;
+    height: 352px !important;
+    margin-top: 25% !important;
+    margin-bottom: 25% !important;
+}
+
+#rotate {
+  cursor: pointer;
+}
+
+#rotate i {
+  transition: all 0.2s ease-out;
+  font-size: 35px;
+  vertical-align: middle;
+}
+
+#rotate:hover i {
+  transform: rotate(180deg);
+}
+
+#viewCont {
+  position: absolute;
+  top: 50px;
+  right: 250px;
+  width: 100px;
+  height: 40px;
+  padding: 5px;
+}
+
+#desktopCont, #mobileCont {
+  color: white;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+}
+
+#scrollTop {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background: #444;
+  opacity: 0.5;
+  text-align: center;
+  font-size: 32px;
+  color: white;
+  position: absolute;
+  bottom: 50px;
+  right: 75px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+#scrollTop:hover {
+  opacity: 1;
+}
+
+#modal {
+  width: 80%;
+  min-width: 1100px;
+  height: 80%;
+  background: white;
+  margin: auto;
+  box-shadow: 0px 0px 32px #444444;
+  padding: 0% !important;
+}
+
+.side {
+  width: 50% !important;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+}
+
+#modalLeft {
+  background: white;
+  position: relative;
+  height: 100% !important;
+}
+
+#modalRight {
+  background: #122333;
+}
+
+#replacedImage {
+  width: 80%;
+  height: 50%;
+  background: white;
+  margin: auto;
+  margin-top: 25%;
+  box-shadow: 0px 0px 32px black;
+}
+
+#topCont {
+  width: 100%;
+  height: 15%;
+}
+
+#icon {
+  font-size: 60px;
+  height: 100%;
+  width: 20%;
+  text-align: center;
+  float: left;
+}
+
+#elementsDrop {
+  width: 80%;
+  float: left;
+  font-size: 36px;
+  padding-top: 20px;
+}
+
+#typeCont {
+  width: 100%;
+  height: 20%;
+}
+
+.type {
+  width: 50%;
+  height: 100%;
+  float: left;
+  background: #122333;
+  padding-top: 2%;
+  cursor: pointer;
+}
+
+#socialCont {
+  background: url("img/social.jpg");
+}
+
+#genCont {
+  background: url("img/general.jpg");
+  background-size: 100%;
+  background-position: bottom;
+}
+
+.typeLabel {
+  width: 65%;
+  border: 6px solid white;
+  height: 65%;
+  margin: auto;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  padding-top: 5%;
+  font-family: 'Arvo';
+  text-shadow: 0px 0px 8px rgba(68, 68, 68, 0.8);
+  transition: transform 0.1s ease-out;
+}
+
+.type:hover .typeLabel {
+  transform: scale(1.025);
+}
+
+.galleryCont {
+  width: 100%;
+  height: 67%;
+  background-size: cover;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0%;
+  position: absolute;
+  top: 35%;
+  transition: all 0.2s ease-out;
+}
+
+.galleryShowCase {
+  height: 100% !important;
+  overflow: hidden !important;
+  top: 0;
+}
+
+#galleryCont1 {
+  left: 0%;
+}
+
+#galleryCont2 {
+  left: -100%;
+}
+
+.galleryItem {
+  float: left;
+  background-size: contain;
+  overflow: hidden;
+  border: 1px solid white;
+  /*transition: top 0.2s ease-out, left 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out;*/
+  transition: all 0.2s ease-out;
+  height: 25%;
+  cursor: pointer;
+}
+
+.showCase {
+  left: 0 !important;
+  /*top: 0 !important;*/
+  width: 100% !important;
+  height: 65%;
+  border: none;
+}
+
+#showCaseBottom {
+  height: 35%;
+  position: absolute;
+  bottom: -35%;
+  left: 0%;
+  width: 100%;
+  background: white;
+  transition: all 0.2s ease-out;
+  text-align: center;
+  padding: 25px;
+}
+
+.showCaseBottomShow {
+  bottom: 0 !important;
+}
+
+.closeShowCase {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 38px !important;
+  text-shadow: 0px 0px 8px rgba(68, 68, 68, 0.8);
+}
+
+#name {
+  font-size: 32px;
+}
+
+#filename {
+  font-size: 16px;
+}
+
+#link {
+  height: 80px;
+  width: 50%;
+  border: 1px solid #444;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.replace {
+  position: absolute;
+  right: 10px;
+  top: 45%;
+  color: white;
+  border: 4px solid white;
+  padding: 5px;
+  transition: all 0.2s ease-out;
+  width: 50px;
+  overflow: hidden;
+  box-shadow: 0px 0px 8px rgba(68, 68, 68, 0.8);
+  cursor: pointer;
+}
+.replace i {
+  font-size: 40px;
+  float: right;
+  display: inline-block;
+  text-shadow: 0px 0px 8px rgba(68, 68, 68, 0.8);
+}
+.replace .replaceSpan {
+  position: absolute;
+  opacity: 0;
+  left: 20px;
+  top: 15px;
+  width: 120px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.2s ease-out;
+  word-wrap: nowrap;
+  text-shadow: 0px 0px 8px rgba(68, 68, 68, 0.8);
+}
+
+.replace:hover {
+  width: 180px;
+}
+
+.replace:hover > .replaceSpan {
+  opacity: 1;
+}
+
+.galleryItem:not(.showCase):hover {
+  transform: scale(1.005);
+  box-shadow: 0px 0px 18px rgba(68,68,68,1);
+}
+
+.selectCont {
+  position: relative;
+  height: 30px;
+  width: 150%;
+  left: -50%;
+  bottom: 29px;
+  transition: left 0.2s ease-out;
+}
+
+.select {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+.select.right {
+    border-bottom: 25px solid rgba(255,255,255,.7);
+    border-right: 20px solid transparent;
+  }
+  .select.left {
+    border-bottom: 25px solid rgba(255,255,255,.7);
+    border-left: 20px solid transparent;
+  }
+
+    </style>
+</head>
+
+<body spellcheck="false">
+  <span class='highlighter-container'>
+        <div>
+          <div class="boldButton tooltipButton tooltipUniv"><i class="fa fa-bold"></i></div>
+          <div class="italicButton tooltipButton tooltipUniv"><i class="fa fa-italic"></i></div>
+          <div class="underlineButton tooltipButton tooltipUniv"><i class="fa fa-underline"></i></div>
+          <div class="subButton tooltipButton tooltipUniv"><i class="fa fa-subscript"></i></div>
+          <div class="supButton tooltipButton tooltipUniv"><i class="fa fa-superscript"></i></div>
+          <br><br>
+          <div class="leftAlignButton tooltipButton tooltipUniv"><i class="fa fa-align-left"></i></div>
+          <div class="centerAlignButton tooltipButton tooltipUniv"><i class="fa fa-align-center"></i></div>
+          <div class="rightAlignButton tooltipButton tooltipUniv"><i class="fa fa-align-right"></i></div>
+          <div class="colorButton tooltipButton"><i class="fa fa-sun-o"></i></div>
+          <div class="formatButton tooltipButton"><i class="fa fa-header"></i></div>
+          <div class="formatDrop">
+            <ul>
+              <li class="headerOne tooltipUniv">Header 1</li>
+              <li class="headerTwo tooltipUniv">Header 2</li>
+              <li class="headerThree tooltipUniv">Header 3</li>
+            </ul>
+          </div>
+          <div class="newlink">
+            <label for="new">Link:</label>
+            <input type="text" id="new">
+            <br>
+            <label for="open">Open in new tab</label>
+            <input type="checkbox" id="open">
+            <br>
+            <button id="newLinkButton">OK</button>
+          </div>
+        </div>
+      </span>
+  <div id="cardBG">
+    <div class="background" id="backgroundLeft"></div>
+    <div class="background" id="backgroundRight"></div>
+    <div id="mainCont">
+        <div class="cardCont">
+          <div class="card" id="card1"></div>
+          <div class="card" id="card2"></div>
+          <div class="card" id="card3"></div>
+          <div class="card" id="card4"></div>
+          <div class="card" id="card5"></div>
+          <div class="card" id="card6"></div>
+          <div class="card" id="card7"></div>
+          <div class="card" id="card8"></div>
+        </div>
+    </div>
+  </div>
+    <!-- <div id="curtain" style="width: 100%; height: 100%; z-index: 99999; background: #122333; position:absolute; background: #191f27">
+        <div class="ball-container">
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+        </div>
+    </div> -->
+    <div class="mobileButton" id="desktop">Desktop</div><div class="mobileButton" id="mobile">Mobile</div>
+    <header id="header">
+      <div id="export">Export</div>
+    </header>
+    <!-- <div id="modal">
+        <div id="modalLeft">
+            <div id="modalLeftText">
+                <div id="placeholder">
+                </div>
+                <div id="tinyCont">
+                    <div id="tinyMCE"></div>
+                </div>
+            </div>
+            <div id="modalLeftImage">
+                <div id="galleryCont">
+                    <div id="galleryImageCont">
+                        <div id="imageCol0" class="imageCol"></div>
+                        <div id="imageCol1" class="imageCol"></div>
+                        <div id="imageCol2" class="imageCol"></div>
+                    </div>
+                </div>
+                <div id="galleryInfoCont">
+                    Name: <span id="imageName"></span>
+                    <br>
+                    <br> 
+                    File Name: <span id="imageFileName"></span>
+                    <br>
+                    <br> 
+                    <label for="imageLink">Link: </label>
+                    <input type="text" id="imageLink" style="padding-left: 10px; margin-left: 5px; opacity: 0.7, font-style: italic; border: none; border-bottom: 1px solid #444;" placeholder="Add a link...">&nbsp;&nbsp;<i id="addLink" class="fa fa-plus"></i>
+                    <br>
+                    <span style="color: red; display: none;" id="imageLinkWarning">It seems you forgot to add a link.</span>
+                </div>
+                <div id="galleryButton">
+                    <div class="genericButton" id="galleryButton">Import</div>
+                    <br>
+                    <br>
+                    <div id="imageWarning" style="display: none;">Please select an image</div>
+                </div>
+            </div>
+        </div>
+        <div id="modalRight">
+            <div class="arrow" id="upLeft"><i class="fa fa-caret-up"></i></div>
+            <div class="arrow" id="upRight"><i class="fa fa-caret-up"></i></div>
+            <div class="arrow" id="downLeft"><i class="fa fa-caret-down"></i></div>
+            <div class="arrow" id="downRight"><i class="fa fa-caret-down"></i></div>
+            <div id="editCont">
+                <div id="editPreview">
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div id="modal">
+      <div id="modalLeft" class="side">
+      <div id="modalLeftText">
+                <div id="placeholder">
+                </div>
+                <div id="tinyCont">
+                    <div id="tinyMCE"></div>
+                </div>
+            </div>
+        <div id="modalLeftImage">
+          <div id="topCont">
+            <div id="icon"><i class="fa fa-picture-o"></i></div><div id="elementsDrop">Image Item 1</div>
+          </div>
+          <div id="typeCont">
+            <div class="type social check" id="socialCont">
+              <div class="typeLabel">
+                Social
+              </div>
+            </div>
+            <div class="type general" id="genCont">
+              <div class="typeLabel">
+                General
+              </div>
+            </div>
+            <div class="selectCont">
+              <div class="select right"></div><div class="select left"></div>
+            </div>
+          </div>
+          <div class="galleryCont" id="galleryCont1">
+
+          </div>
+          <div class="galleryCont" id="galleryCont2">
+
+          </div>
+          <div id="showCaseBottom">
+            <div id="name">Placeholder 1</div>
+            <div id="filename">url(placeholder 1)</div>
+            <div id="link"></div>
+          </div>
+        </div>
+      </div>
+      <div id="modalRight" class="side">
+        <div class="arrow" id="upLeft"><i class="fa fa-caret-up"></i></div>
+            <div class="arrow" id="upRight"><i class="fa fa-caret-up"></i></div>
+            <div class="arrow" id="downLeft"><i class="fa fa-caret-down"></i></div>
+            <div class="arrow" id="downRight"><i class="fa fa-caret-down"></i></div>
+            <div id="editCont">
+                <div id="editPreview">
+                </div>
+            </div>
+      </div>
+    </div>
+    <section id="previewModal">
+      <div id="previewClose">
+        <span style="font-size: 44px; color: white;">&#10060;</span>
+      </div>
+      <div id="previewSidebarTab">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+      <section id="previewSidebar">
+        <div id="previewSidebarClose">
+          <i class="fa fa-times"></i>
+        </div>
+        <div id="previewSidebarEdit">
+          Email Info
+        </div>
+      </section>
+      <section id="left">
+        <div class="Cont">
+          <div class="Top"></div>
+          <div class="Mid">
+            <div class="midBody">
+              <div class="content">
+                <iframe id="previewFrame" src="head.html"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="Bottom"></div>
+        </div>
+        <div style="text-align: center; color: white; font-weight: 200; font-family: 'Roboto';">
+          <span style="text-shadow: 0px 0px 30px rgba(68,68,68,1); font-size: 60px;">Desktop</span>
+          <br>
+          <span style="font-size: 20px;">1920 x 1080 (16:9)</span>
+        </div>
+      </section>
+      
+      <section id="right">
+        <div class="Cont">
+          <div class="Top"></div>
+          <div class="Mid">
+            <div class="midBody">
+              <div class="content">
+                <iframe id="previewFrameMobile" src="head.html"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="Bottom"></div>
+        </div>
+        <div style="text-align: center; color: white; font-weight: 200; font-family: 'Roboto';">
+          <span id="rotate" style="text-shadow: 0px 0px 30px rgba(68,68,68,1); font-size: 60px;">Mobile <i class="fa fa-refresh"></i></span>
+          <br>
+          <span id="orientation" style="font-size: 20px;">portrait</span>
+        </div>
+      </section>
+
+      <!-- <section id="previewBottom">
+        <div id="closePreview">Close</div>
+      </section> -->
+    </section>
+    <!-- <div id="previewModal">
+      <iframe id="previewFrame"></iframe>
+      <iframe id="previewFrameMobile"></iframe>
+      <div id="closePreview">Close</div>
+    </div> -->
+    <div id="main">
+      <!-- <div id="viewCont">
+        <div id="desktopCont"><i class="fa fa-desktop"></i></div>
+        <div id="mobileCont"><i class="fa fa-mobile"></i></div>
+      </div> -->
+      <div id="scrollTop">
+        <i class="fa fa-chevron-up"></i>
+      </div>
+        <nav id="mainNav">
+            <div class="navItem navItemSelected" id="navItemProject">
+                <div class="navLeftBorder"></div>
+                <div class="navItemIcon">
+                    <i class="fa fa-codepen"></i>
+                </div>
+                <div class="navItemSpan">
+                    Project
+                </div>
+            </div>
+            <div class="navItem" id="navItemHeaders">
+                <div class="navLeftBorder"></div>
+                <div class="navItemIcon">
+                    <i class="fa fa-header"></i>
+                </div>
+                <div class="navItemSpan">
+                    Headers
+                </div>
+            </div>
+            <div class="navItem" id="navItemBanners">
+                <div class="navLeftBorder"></div>
+                <div class="navItemIcon">
+                    <i class="fa fa-picture-o"></i>
+                </div>
+                <div class="navItemSpan">
+                    Banners
+                </div>
+            </div>
+            <div class="navItem" id="navItemTextImages">
+                <div class="navLeftBorder"></div>
+                <div class="navItemIcon">
+                    <i class="fa fa-indent"></i>
+                </div>
+                <div class="navItemSpan">
+                    Text and
+                    <br/>Images
+                </div>
+            </div>
+            <div class="navItem" id="navItemText">
+                <div class="navLeftBorder"></div>
+                <div class="navItemIcon">
+                    <i class="fa fa-paragraph"></i>
+                </div>
+                <div class="navItemSpan">
+                    Text
+                </div>
+            </div>
+            <div class="navItem" id="navItemFooters">
+                <div class="navLeftBorder"></div>
+                <div class="navItemIcon">
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <div class="navItemSpan">
+                    Footers
+                </div>
+            </div>
+            <div class="navItem" id="navItemSpacers">
+                <div class="navLeftBorder"></div>
+                <div class="navItemIcon">
+                    <i class="fa fa-space-shuttle"></i>
+                </div>
+                <div class="navItemSpan">
+                    Spacers
+                </div>
+            </div>
+            <div class="navItem" id="navItemColour">
+                <div class="navLeftBorder"></div>
+                <div class="navItemIcon">
+                    <i class="fa fa-paint-brush"></i>
+                </div>
+                <div class="navItemSpan">
+                    Colour
+                </div>
+            </div>
+            <div class="navArrow"></div>
+        </nav>
+        <!-- Modules Navbar -->
+        <div class="moduleNav moduleTemp" id="moduleProject">
+        </div>
+        <div class="moduleNav" id="moduleHeaders">
+          <!-- Can't See Left -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="font-family: Arial; background: #fff;">
+              <tr>
+                  <td style="width: 80%; padding: 3%;" align="left">
+                      <table width="100%" cellspacing="0" cellpadding="0" align="left">
+                          <tr>
+                             <td class="center" style="width: 95%; font-size: 10px;" data-edit="text">
+                                  If you can't see the content of this email, please <a href="#">click here</a> to view it in your browser.
+                             </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Can't See Center -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="font-family: Arial; background: #fff;">
+              <tr>
+                  <td style="width: 80%; padding: 3%;" align="left">
+                      <table width="100%" cellspacing="0" cellpadding="0">
+                          <tr>
+                             <td class="center" style="width: 95%; font-size: 10px; text-align: center;" data-edit="text">
+                                  If you can't see the content of this email, please <a href="#">click here</a> to view it in your browser.
+                             </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Logo w/ Social -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td width="100%" style="padding: 2.5%">
+                      <table width="100%">
+                          <tr>
+                              <td style="width: 40%; padding: 10px 0px;" align="left">
+                                  <table width="35%" cellspacing="0" cellpadding="0" align="left">
+                                      <tr>
+                                          <!--[if gte mso 9]>
+                                            <td width="194" style="width: 100%;">
+                                              <img src="img/Logo.png" width="194" style="width: 194px; max-width: 194px"/>
+                                            </td>
+                                          <![endif]-->
+                                          <!--[if !gte mso 9]><!---->
+                                         <td class="center" style="width: 95%; padding-left: 5%;" data-edit="image">
+                                              <img src="img/Logo.png" width="100%" align="center"></img>
+                                         </td>
+                                         <!--<![endif]-->
+                                      </tr>
+                                  </table>
+                              </td>
+                              <td class="center social" align="right" width="40%">
+                                  <table>
+                                      <tr>
+                                          <td align="right" data-edit="text" style="font-size: 11px; font-family: Arial; padding-right: 1%; vertical-align: bottom;">
+                                              <span>FOLLOW US</span>
+                                          </td>
+                                          <td data-edit="image" width="10%">
+                                              <img data-edit="image" src="img/Gallery/Social Icons/facebook-dreamstale25.png" width="95%" align="center"/>
+                                          </td>
+                                          <td width="10%" data-edit="image">
+                                              <img data-edit="image" src="img/Gallery/Social Icons/youtube-dreamstale86.png" width="95%" align="center"/>
+                                          </td>
+                                          <td width="10%" data-edit="image">
+                                              <img data-edit="image" src="img/Gallery/Social Icons/twitter-dreamstale71.png" width="95%" align="center" />
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Logo w/o Social -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td width="100%" style="padding: 2.5%">
+                      <table width="100%">
+                          <tr>
+                              <td style="width: 80%; padding: 10px 0px;" align="left">
+                                  <table width="20%" cellspacing="0" cellpadding="0" align="left">
+                                      <tr>
+                                          <!--[if gte mso 9]>
+                                            <td width="194" style="width: 100%;">
+                                              <img src="img/Logo.png" width="194" style="width: 194px; max-width: 194px"/>
+                                            </td>
+                                          <![endif]-->
+                                          <!--[if !gte mso 9]><!---->
+                                         <td class="center" style="width: 95%;" data-edit="image">
+                                              <img src="img/Logo.png" width="100%" align="center"></img>
+                                         </td>
+                                         <!--<![endif]-->
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Logo w/ Social -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td width="100%" style="padding: 2.5%">
+                      <table width="100%">
+                          <tr>
+                              <td class="center social" align="right" width="50%">
+                                  <table>
+                                      <tr>
+                                          <td align="right" data-edit="text" style="font-size: 11px; font-family: Arial; padding-right: 1%; vertical-align: bottom;">
+                                              <span>FOLLOW US</span>
+                                          </td>
+                                          <td data-edit="image" width="10%">
+                                              <img data-edit="image" src="img/Gallery/Social Icons/facebook-dreamstale25.png" width="95%" align="center"/>
+                                          </td>
+                                          <td width="10%" data-edit="image">
+                                              <img data-edit="image" src="img/Gallery/Social Icons/youtube-dreamstale86.png" width="95%" align="center"/>
+                                          </td>
+                                          <td width="10%" data-edit="image">
+                                              <img data-edit="image" src="img/Gallery/Social Icons/twitter-dreamstale71.png" width="95%" align="center" />
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Logo w/ Text -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td width="100%" style="padding: 2.5%">
+                      <table width="100%">
+                          <tr>
+                              <td style="width: 20%; padding: 10px 0px;" align="left">
+                                  <table width="100%" cellspacing="0" cellpadding="0" align="left">
+                                      <tr>
+                                          <!--[if gte mso 9]>
+                                            <td width="194" style="width: 100%;">
+                                              <img src="img/Logo.png" width="194" style="width: 194px; max-width: 194px"/>
+                                            </td>
+                                          <![endif]-->
+                                          <!--[if !gte mso 9]><!---->
+                                         <td class="center" style="width: 95%; padding-left: 5%;" data-edit="image">
+                                              <img src="img/Logo.png" width="100%" align="center"></img>
+                                         </td>
+                                         <!--<![endif]-->
+                                      </tr>
+                                  </table>
+                              </td>
+                              <td style="width: 65%; padding: 10px 0px;" align="left">
+                                  <table width="100%" cellspacing="0" cellpadding="0" align="left">
+                                      <tr>
+                                         <td class="center" style="width: 95%; padding-left: 5%;" data-edit="text">
+                                              Lorem Ipsum Dolor Sit Amet
+                                         </td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Logo w/ Right Text -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td width="100%" style="padding: 2.5%">
+                      <table width="100%">
+                          <tr>
+                              <td style="width: 20%; padding: 10px 0px;" align="left">
+                                  <table width="100%" cellspacing="0" cellpadding="0" align="left">
+                                      <tr>
+                                          <!--[if gte mso 9]>
+                                            <td width="194" style="width: 100%;">
+                                              <img src="img/Logo.png" width="194" style="width: 194px; max-width: 194px"/>
+                                            </td>
+                                          <![endif]-->
+                                          <!--[if !gte mso 9]><!---->
+                                         <td class="center" style="width: 95%; padding-left: 5%;" data-edit="image">
+                                              <img src="img/Logo.png" width="100%" align="center"></img>
+                                         </td>
+                                         <!--<![endif]-->
+                                      </tr>
+                                  </table>
+                              </td>
+                              <td style="width: 65%; padding: 10px 0px;" align="left">
+                                  <table width="100%" cellspacing="0" cellpadding="0" align="right">
+                                      <tr>
+                                         <td class="center" style="width: 95%; text-align: right; padding-right: 5%;" data-edit="text">
+                                              LOREM IPSUM DOLOR<BR>SIT AMET CONSECTATUR
+                                         </td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Logo w/ Dealer -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td width="100%" style="padding: 2.5%">
+                      <table width="100%">
+                          <tr>
+                              <td style="width: 50%; padding: 10px 0px;" align="left">
+                                  <table width="100%" cellspacing="0" cellpadding="0" align="left">
+                                      <tr>
+                                          <!--[if gte mso 9]>
+                                            <td width="194" style="width: 100%;">
+                                              <img src="img/Logo.png" width="194" style="width: 194px; max-width: 194px"/>
+                                            </td>
+                                          <![endif]-->
+                                          <!--[if !gte mso 9]><!---->
+                                         <td class="center" style="width: 95%; font-size: 50%;" data-edit="image" contenteditable="false">
+                                              <img src="img/Logo.png" width="50%" align="center">
+                                         </td>
+                                         <!--<![endif]-->
+                                      </tr>
+                                  </table>
+                              </td>
+                              <td style="width: 50%; padding: 10px 0px;" align="right">
+                                  <table width="100%" cellspacing="0" cellpadding="0" align="right">
+                                      <tr>
+                                          <!--[if gte mso 9]>
+                                            <td width="194" style="width: 100%;">
+                                              <img src="img/Logo.png" width="194" style="width: 194px; max-width: 194px"/>
+                                            </td>
+                                          <![endif]-->
+                                          <!--[if !gte mso 9]><!---->
+                                         <td class="center" style="width: 95%; padding-left: 5%; font-size: 50%;" data-edit="image" contenteditable="false">
+                                              <img src="img/Logo.png" width="50%" align="right">
+                                         </td>
+                                         <!--<![endif]-->
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Dealer Logo -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td width="100%" style="padding: 2.5%">
+                      <table width="100%">
+                          <tr>
+                              <td style="width: 80%; padding: 10px 0px;" align="left">
+                                  <table width="35%" cellspacing="0" cellpadding="0" align="left">
+                                      <tr>
+                                          <!--[if gte mso 9]>
+                                            <td width="194" style="width: 100%;">
+                                              <img src="img/Logo.png" width="194" style="width: 194px; max-width: 194px"/>
+                                            </td>
+                                          <![endif]-->
+                                          <!--[if !gte mso 9]><!---->
+                                         <td class="center" style="width: 95%; padding-left: 5%;" data-edit="image">
+                                              <img src="img/Logo.png" width="100%" align="center"></img>
+                                         </td>
+                                         <!--<![endif]-->
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Center Logo -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td width="100%" style="padding: 2.5%">
+                      <table width="100%">
+                          <tr>
+                              <td style="width: 100%; padding: 10px 0px;" align="left">
+                                  <table width="20%" cellspacing="0" cellpadding="0" align="center">
+                                      <tr>
+                                          <!--[if gte mso 9]>
+                                              <td width="194" style="width: 100%;">
+                                                  <img src="img/Logo.png" width="194" style="width: 194px; max-width: 194px"/>
+                                              </td>
+                                          <![endif]-->
+                                          <!--[if !gte mso 9]><!---->
+                                              <td class="center" style="font-size: 50%;" data-edit="image" contenteditable="false">
+                                                  <img src="img/Logo.png" width="100%" align="center">
+                                              </td>
+                                          <!--<![endif]-->
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+          <!-- Menu Left -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td id="test" data-edit="text" class="center nav" align="left" style="color: #444; padding: 3% 4%; text-transform: uppercase; font-size: 11px; font-family: Arial;" width="100%">
+                      <span>MENU 1 | MENU 2 | MENU 3 | MENU 4</span>
+                  </td>
+              </tr>
+          </table>
+          <!-- Menu Center -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td id="test" data-edit="text" class="center nav" align="center" style="color: #444; padding: 3% 4%; text-transform: uppercase; font-size: 11px; font-family: Arial;" width="100%">
+                      <span>MENU 1 | MENU 2 | MENU 3 | MENU 4</span>
+                  </td>
+              </tr>
+          </table>
+          <!-- Menu Right -->
+          <table data-filter="header" class="containerNon" width="100%" cellspacing="0" cellpadding="0" align="center" style="background: #fff;">
+              <tr>
+                  <td id="test" data-edit="text" class="center nav" align="right" style="color: #444; padding: 3% 4%; text-transform: uppercase; font-size: 11px; font-family: Arial;" width="100%">
+                      <span>MENU 1 | MENU 2 | MENU 3 | MENU 4</span>
+                  </td>
+              </tr>
+          </table>
+        </div>
+        <div class="moduleNav" id="moduleBanners"></div>
+        <div class="moduleNav" id="moduleTextImages"></div>
+        <div class="moduleNav" id="moduleText"></div>
+        <div class="moduleNav" id="moduleSpacers"></div>
+        <div class="moduleNav" id="moduleFooters"></div>
+        <div class="moduleNav" id="moduleColour">
+            <div id="recentColorsHeader" class="clearfix">
+                <span id="recentHeader">Project Colors</span>
+            </div>
+            <div id="recentColorsCont">
+                <div class="recentColorChooser colorDrag recentColor" id="colorBox5"></div>
+                <div class="recentColorChooser colorDrag recentColor" id="colorBox4"></div>
+                <div class="recentColorChooser colorDrag recentColor" id="colorBox3"></div>
+                <div class="recentColorChooser colorDrag recentColor" id="colorBox2"></div>
+                <div class="recentColorChooser colorDrag recentColor" id="colorBox1"></div>
+                <div class="recentColorChooser" id="pickerBox"></div>
+                <span class="stretch"></span>
+            </div>
+            <div id="brandColors" class="clearfix">
+                <div class="brandColorCont">
+                    <div class="brandColorIcon" id="brandColorIconCad"></div>
+                    <div class="brandColorsCont">
+                        <div class="brandColorRight colorDrag" id="brandColorCadBlue"></div>
+                        <div class="brandColorLeft colorDrag" id="brandColorCadRed"></div>
+                        <div class="brandColorRight colorDrag" id="brandColorCadGray"></div>
+                        <div class="brandColorLeft colorDrag" id="brandColorCadGold"></div>
+                    </div>
+                </div>
+                <div class="brandColorCont">
+                    <div class="brandColorIcon" id="brandColorIconGMC"></div>
+                    <div class="brandColorsCont">
+                        <div class="brandColorRight colorDrag" id="brandColorGMCGray"></div>
+                        <div class="brandColorLeft colorDrag" id="brandColorGMCRed"></div>
+                        <div class="brandColorRight colorDrag" id="brandColorGMCWhite"></div>
+                        <div class="brandColorLeft colorDrag" id="brandColorGMCBlack"></div>
+                    </div>
+                </div>
+                <div class="brandColorCont">
+                    <div class="brandColorIcon" id="brandColorIconChev"></div>
+                    <div class="brandColorsCont">
+                        <div class="brandColorRight colorDrag" id="brandColorChevYellow"></div>
+                        <div class="brandColorLeft colorDrag" id="brandColorChevGray"></div>
+                        <div class="brandColorRight colorDrag" id="brandColorChevLightGray"></div>
+                        <div class="brandColorLeft colorDrag" id="brandColorChevWhite"></div>
+                    </div>
+                </div>
+                <div class="brandColorCont">
+                    <div class="brandColorIcon" id="brandColorIconBuick"></div>
+                    <div class="brandColorsCont">
+                        <div class="brandColorRight colorDrag" id="brandColorBuickOrange"></div>
+                        <div class="brandColorLeft colorDrag" id="brandColorBuickBlue"></div>
+                        <div class="brandColorRight colorDrag" id="brandColorBuickGray"></div>
+                        <div class="brandColorLeft colorDrag" id="brandColorBuickWhite"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <nav id="editor">
+          </nav> -->
+        <div id="buildCont">
+            <div id="scrubberCont">
+                <div id="scrubber"></div>
+            </div>
+            <div id="clearTemplate" class="alertButton">Clear Template</div>
+            <div id="buildBG">
+                <div id="buildPreview">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+    </script>
+    <scirpt src="js/jQuery.highlighter.js"></script>
+    <script src='js/tooltip.js'></script>
+    <script src='js/spectrum.js'></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/jquery.contenteditable.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+    
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+
+    <script>
+      var perRow = 4;
+var rows = 5;
+
+for (var i = 0; i < perRow * rows; i++) {
+  $("#galleryCont1").append('<div data-name="Placeholder Image ' + i + '" class="galleryItem" style="width: ' + 100 / perRow + '%; padding-bottom: ' + 100 / perRow + '%; background: url(https://unsplash.it/800/800.' + i + '/?random); background-size: cover;"></div>');
+}
+
+for (var j = 0; j < perRow * rows; j++) {
+  $("#galleryCont2").append('<div data-name="Placeholder Image ' + j + '" class="galleryItem" style="width: ' + 100 / perRow + '%; padding-bottom: ' + 100 / perRow + '%; background: url(https://unsplash.it/800/800.' + j + '/?random); background-size: cover;"></div>');
+}
+
+var show = false;
+var clone;
+var topCoord;
+var left;
+var url;
+
+$(".galleryCont").on('click', '.galleryItem:not(.close)', function() {
+  if (show == false) {
+    clone = $(this).clone();
+    topCoord = $(this).position().top;
+    left = $(this).position().left;
+    var name = $(this).attr("data-name");
+    url = $(this).css("background-image");
+    $("#name").html(name);
+    $("#filename").html(url);
+    clone.css({'position': 'absolute', 'top': topCoord, 'left': left});
+    $(this).closest(".galleryCont").append(clone);
+    var scrollTop = $(this).closest(".galleryCont").scrollTop();
+    console.log(scrollTop);
+    if (scrollTop > 200) {
+      scrollTop = 200;
+    }
+    $(this).closest(".galleryCont").addClass("galleryShowCase");
+    setTimeout(function() {
+      clone.addClass("showCase").append('<i class="fa fa-times closeShowCase"></i><div class="replace"><div class="replaceSpan">Replace Image</div><i class="fa fa-chevron-right"></i></div>').css("top", scrollTop - 2 + "px");
+      $("#showCaseBottom").addClass("showCaseBottomShow");
+      
+    }, 51);
+  }
+  show = true;
+});
+
+$(".galleryCont").on('click', '.closeShowCase:not(.galleryItem)', function() {
+  $(".showCase").find(".close").fadeOut("fast");
+  $(".showCase").find(".replace").fadeOut("fast");
+  $(this).closest(".galleryCont").removeClass("galleryShowCase");
+  setTimeout(function() {
+    $(".showCase").removeClass("showCase").addClass("remove");  
+    $("#showCaseBottom").removeClass("showCaseBottomShow");
+    
+  }, 200);
+  setTimeout(function() {
+    $(".remove").remove();
+    show = false;
+  }, 400);
+});
+
+$(".galleryCont").on("click", ".replace", function() {
+  $("#replacedImage").css({"background-image": url, "background-size": "cover"});
+});
+
+$selectCont = $(".selectCont");
+
+$(".type").click(function() {
+  if ($(this).hasClass("social") && !$(this).hasClass("check")) {
+    $(this).addClass("check").siblings(".type").removeClass("check");
+    $selectCont.css("left", "-50%");
+    $("#galleryCont1").css("left", "0%");
+    $("#galleryCont2").css("left", "-100%");
+  } else if ($(this).hasClass("general") && !$(this).hasClass("check")) {
+    $(this).addClass("check").siblings(".type").removeClass("check");
+    $selectCont.css("left", "0%");
+    $("#galleryCont1").css("left", "100%");
+    $("#galleryCont2").css("left", "0%");
+  }
+});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<html>	
+	<head>	
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			body, html {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				font-family: 'Roboto';
+				background: #4c657d;
+			}
+
+			header {
+				height: 7%;
+				background: white;
+				width: 100%;
+				box-shadow: 0px 0px 8px rgba(0,0,0,.5);
+				z-index: 110;
+				position: absolute;
+			}
+
+			#mainNav {
+				width: 115px;
+				height: 93%;
+				background: #122333;
+				position: absolute;
+				left: 0;
+				top: 7%;
+				box-shadow: 0px 0px 15px rgba(0,0,0,.9);
+				z-index: 100;
+			}
+
+			.navItem {
+				width: 100%;
+				border-bottom: 2px solid white;
+				height: 14.29%;
+				transition: box-shadow 0.2s ease-out;
+				position: relative;
+				cursor: pointer;
+				z-index: 99;
+				-webkit-user-select: none;  /* Chrome all / Safari all */
+			    -moz-user-select: none;     /* Firefox all */
+			    -ms-user-select: none;      /* IE 10+ */
+			    user-select: none;
+			}
+
+			.navItem:nth-child(7) {
+				border-bottom: none;
+			}
+
+			.navItemSelected {
+				background: #3d5266 !important;
+			}
+
+			.navItemSelected>.navLeftBorder {
+				background: #f25565 !important;
+				width: 6px;
+			}
+
+			.navLeftBorder {
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 0;
+				background: #b53642;
+				transition: width 0.1s ease-out;
+			}
+
+			.navArrow {
+				width: 20px; 
+				height: 20px;
+				transform: rotate(45deg); 
+				position: absolute;
+				right: -10px;
+				top: 48%;
+				background: #3d5266;
+				box-shadow: 0px 0px 8px black;
+				/*transition: top 0.2s ease-out;*/
+				z-index: 98;
+			}
+
+			.navItem:hover {
+				background: #162a3c;
+			}
+
+			.navItem:hover .navLeftBorder {
+				width: 6px;
+			}
+
+			.navItemIcon {
+				height: 60%;
+				width: 100%;
+				text-align: center;
+				padding-top: 20%;
+			}
+
+			.navItemIcon i {
+				color: white;
+				font-size: 30pt;
+			}
+
+			.navItemSpan {
+				width: 100%;
+				height: 30%;
+				color: white;
+				font-size: 12pt;
+				font-weight: 300;
+				text-align: center;
+			}
+
+			.moduleNav {
+				width: 340px;
+				height: 93%;
+				top: 7%;
+				position: absolute;
+				left: -240px;
+				padding: 20px;
+				background: #3d5266;
+				transition: left 0.2s ease-out;
+				box-shadow: 0px 0px 8px rgba(0,0,0,.5);
+			}
+
+			.moduleNavShow {
+				left: 115px !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header></header>
+
+		<!-- Main Navigation -->
+		<nav id="mainNav">
+			<div class="navItem navItemSelected" id="navItemProject">
+				<div class="navLeftBorder"></div>
+				<div class="navItemIcon">
+					<i class="fa fa-codepen"></i>
+				</div>
+				<div class="navItemSpan">
+					Project
+				</div>
+			</div>
+			<div class="navItem" id="navItemHeaders">
+				<div class="navLeftBorder"></div>
+				<div class="navItemIcon">
+					<i class="fa fa-header"></i>
+				</div>
+				<div class="navItemSpan">
+					Headers
+				</div>
+			</div>
+			<div class="navItem" id="navItemBanners">
+				<div class="navLeftBorder"></div>
+				<div class="navItemIcon">
+					<i class="fa fa-picture-o"></i>
+				</div>
+				<div class="navItemSpan">
+					Banners
+				</div>
+			</div>
+			<div class="navItem" id="navItemTextImages">
+				<div class="navLeftBorder"></div>
+				<div class="navItemIcon">
+					<i class="fa fa-indent"></i>
+				</div>
+				<div class="navItemSpan">
+					Text and <br/>Images
+				</div>
+			</div>
+			<div class="navItem" id="navItemText">
+				<div class="navLeftBorder"></div>
+				<div class="navItemIcon">
+					<i class="fa fa-paragraph"></i>
+				</div>
+				<div class="navItemSpan">
+					Text
+				</div>
+			</div>
+			<div class="navItem" id="navItemFooters">
+				<div class="navLeftBorder"></div>
+				<div class="navItemIcon">
+					<i class="fa fa-chevron-down"></i>
+				</div>
+				<div class="navItemSpan">
+					Footers
+				</div>
+			</div>
+			<div class="navItem" id="navItemColour">
+				<div class="navLeftBorder"></div>
+				<div class="navItemIcon">
+					<i class="fa fa-paint-brush"></i>
+				</div>
+				<div class="navItemSpan">
+					Colour
+				</div>
+			</div>
+			<div class="navArrow"></div>
+		</nav>
+
+		<!-- Modules Navbar -->
+		<div class="moduleNav" id="moduleProject"></div>
+		<div class="moduleNav" id="moduleHeaders"></div>
+		<div class="moduleNav" id="moduleBanners"></div>
+		<div class="moduleNav" id="moduleTextImages"></div>
+		<div class="moduleNav" id="moduleText"></div>
+		<div class="moduleNav" id="moduleFooters"></div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				setTimeout(function() {
+					$("#moduleProject").addClass("moduleNavShow");
+				}, 100);
+			});
+
+			function arrowInit() {
+				$initItem = $(".navItem.navItemSelected");
+				var p = $initItem;
+				var position = p.position();
+				var clickedPos = position.top;
+				var finalPos = clickedPos + ($initItem.height() / 2) - ($(".navArrow").height() / 2);
+				$(".navArrow").css("top", finalPos);
+			}
+
+			arrowInit();
+
+			$(".navItem").click(function() {
+				$(this).siblings().removeClass("navItemSelected");
+				$(this).addClass("navItemSelected");
+				var p = $(this);
+				var position = p.position();
+				var clickedPos = position.top;
+				var finalPos = clickedPos + ($(this).height() / 2) - ($(".navArrow").height() / 2);
+				$(".navArrow").css("top", finalPos);
+			});
+
+			$(".navItem").click(function() {
+				var Id = $(this).attr("Id");
+				var Id = "#" + Id.replace("navItem", "module");
+				$(Id).siblings().removeClass("moduleNavShow");
+				setTimeout(function() {
+					$(Id).addClass("moduleNavShow");
+				}, 200)
+				
+
+			});
+		</script>
+
+	</body>
+</html>

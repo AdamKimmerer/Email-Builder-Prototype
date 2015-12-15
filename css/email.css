@@ -1,0 +1,154 @@
+body {
+    background: #444;
+    color: rgb(86, 86, 90);
+}
+
+.containerNon {
+    font-family: Arial;
+    table-layout: fixed;
+}
+
+.containerNon * {
+    table-layout: fixed;
+}
+
+.scaling-img {
+    height: auto !important;
+    max-width: 600px;
+    width: 100%;
+}
+
+.desktop {
+    padding: 0;
+}
+
+.center.button {
+    padding: 5px 0px;
+}
+
+@media (max-width: 700px) {
+    .container {
+        width: 100% !important;
+    }
+    .center {
+        width: 100% !important;
+        display: inline-block;
+        padding: 0% !important;
+        box-sizing: border-box;
+    }
+    .center.text {
+        padding: 8% !important;
+    }
+    .center.toplink {
+        font-size: 9px !important;
+    }
+    .center.nav {
+        padding: 3% 4% !important;
+        font-size: 10px !important;
+        text-align: center !important;
+    }
+    .center.social {
+        text-align: center;
+    }
+    .center.logo {
+        text-align: center;
+        padding-top: 20px !important;
+    }
+    .center.logo img {
+        width: 70% !important;
+    }
+    .center.options img {
+        width: 100%;
+    }
+    .dealerIcons {
+        width: 50% !important;
+        display: block;
+        text-align: center;
+        Margin: auto;
+    }
+    .desktop {
+        display: none;
+    }
+    .center.button img {
+        width: 60% !important;
+        text-align: center;
+        padding: 5px;
+    }
+}
+
+/* Builder CSS */
+
+.mobilePreviewBG {
+    width: 400px !important;
+}
+
+.mobilePreview#buildPreview {
+    width: 320px !important;
+}
+
+.mobilePreview#scrubberCont {
+    width: 80px !important;
+}
+
+    .mobilePreview .container {
+        width: 100% !important;
+    }
+
+    .mobilePreview .center {
+        width: 100% !important;
+        display: inline-block;
+        padding: 0% !important;
+        box-sizing: border-box;
+    }
+
+    .mobilePreview .center.text {
+        padding: 8% !important;
+    }
+
+    .mobilePreview .center.toplink {
+        font-size: 9px !important;
+    }
+
+    .mobilePreview .center.nav {
+        padding: 3% 4% !important;
+        font-size: 10px !important;
+        text-align: center !important;
+    }
+
+    .mobilePreview .center.social {
+        text-align: center;
+    }
+
+    .mobilePreview .center.logo {
+        text-align: center;
+        padding-top: 20px !important;
+    }
+
+    .mobilePreview .center.logo img {
+        width: 70% !important;
+    }
+
+    .mobilePreview .center.options img {
+        width: 100%;
+    }
+
+    .mobilePreview .dealerIcons {
+        width: 50% !important;
+        display: block;
+        text-align: center;
+        Margin: auto;
+    }
+
+    .mobilePreview .desktop {
+        display: none;
+    }
+
+    .mobilePreview .center.button img {
+        width: 60% !important;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .mobilePreview .center.button {
+        text-align: center;
+    }

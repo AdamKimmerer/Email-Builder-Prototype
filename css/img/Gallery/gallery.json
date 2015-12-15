@@ -1,0 +1,42 @@
+[
+	{
+		"Name":"Sheep",
+		"URL":"img/Gallery/dummy-100x100-Sheep.jpg"
+	},
+	{
+		"Name":"Gull",
+		"URL":"img/Gallery/dummy-200x200-Gull.jpg"
+	},
+	{
+		"Name":"Dragonfly",
+		"URL":"img/Gallery/dummy-315x560-Dragonfly.jpg"
+	},
+	{
+		"Name":"Auger",
+		"URL":"img/Gallery/dummy-375x500-Auger1.jpg"
+	},
+	{
+		"Name":"Jellyfish",
+		"URL":"img/Gallery/dummy-454x280-Jellyfish.jpg"
+	},
+	{
+		"Name":"White Tiger",
+		"URL":"img/Gallery/dummy-480x270-WhiteTiger.jpg"
+	},
+	{
+		"Name":"Impala",
+		"URL":"img/Gallery/dummy-540x960-Impala.jpg"
+	},
+	{
+		"Name":"Llama",
+		"URL":"img/Gallery/dummy-576x1024-Lama.jpg"
+	},
+	{
+		"Name":"Puffin",
+		"URL":"img/Gallery/dummy-600x900-Puffin.jpg"
+	},
+	{
+		"Name":"King Vulture",
+		"URL":"img/Gallery/dummy-683x1024-KingVulture.jpg"
+	}
+]
